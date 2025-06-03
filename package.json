@@ -10,10 +10,11 @@
   "license": "ISC",
   "description": "An action for commit's email pattern",
   "scripts": {
-    "build": "ncc build src/index.ts --minify --out dist",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider ncc build src/index.ts --minify --out dist",
     "start": "yarn build --watch",
     "test": "jest",
     "lint": "eslint --max-warnings=0"
+
   },
   "devDependencies": {
     "@types/jest": "^26.0.18",
