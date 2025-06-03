@@ -16,4 +16,4 @@ outputs:
     description: "Whether all commit emails are valid"
 runs:
   using: 'node20'
-  main: 'dist/index.js'
+  main: '../index.js'
