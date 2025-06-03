@@ -1,17 +1,19 @@
 name: Test Custom Email Checker
 
 on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review, labeled, unlabeled]
   push:
     branches: [main]
 
 jobs:
   verify-email:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 
       - name: Check committer email
-        uses: ./.
+        uses: ./.github/actions/test-email-action.yml
         with:
           email_domain: '@wazuh.com,@users.noreply.github.com'
           github_token: ${{ secrets.GITHUB_TOKEN }}
